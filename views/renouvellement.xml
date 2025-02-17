@@ -1,0 +1,106 @@
+<odoo>
+  <data>
+        <!-- la view form -->
+      <record model="ir.ui.view" id="view_form_renouvellement_certificats">
+            <field name="name">RENOUVELLEMENT D'UN CERTIFICAT /LICENCES</field>
+            <field name="model">certificat.renouvellement</field>
+            <field name="arch" type="xml">
+                <form string="RENOUVELLEMENT D'UN CERTIFICAT / LICENCES">
+                     <header>
+                        <button string="Mise a jour des dates" name="%(action_mise_a_jour_form_view)s" type="action"  class="oe_highlight" />
+                    </header>
+                      <sheet>
+                          <div style="border-radius:20px 20px black;color:orange; margin-bottom:20px; padding:10px;text-align:center;font-size:30px;">
+                             RENOUVELLEMENT CERTIFICATS / LICENCES
+                          </div>
+                            <div>
+                                <h1>
+                                    <field name="alert_id" placeholder="certificats /Licences"/>
+                                </h1>
+                          </div>
+                           <group>
+                                   <group>
+                                        <field name="const_dat" string=" Constat :"/>
+                                        <field name="confir_dat"/>
+                                        <field name="extrat1_dat"/>
+                                        <field name="cot_dat"/>
+                                        <field name="ach_dat"/>
+                                         <field name="cert_num"/>
+                                   </group>
+                                   <group>
+                                        <field name="ver_ach_dat"/>
+                                        <field name="nouvel_ext_dat"/>
+                                        <field name="transf_dat"/>
+                                         <field name="instal_dat"/>
+                                         <field name="ver_instal_dat"/>
+<!--                                        <field name="cert_ref"/>-->
+                                        <field name="dat_reference"/>
+                                   </group>
+                               <h1>Traitement :</h1>
+                               <field name="observat" placeholder="Traitement" />
+                           </group>
+                      </sheet>
+                </form>
+            </field>
+        </record>
+       <!-- la view tree -->
+       <record model="ir.ui.view" id="view_tree_renouvellement_certificat">
+                  <field name="name">RENOUVELLEMENT D'UN CERTIFICAT /LICENCES</field>
+                  <field name="model">certificat.renouvellement</field>
+                  <field name="arch" type="xml">
+                    <tree string="RENOUVELLEMENT D'UN CERTIFICAT / LICENCES" default_order="nouvel_ext_dat asc, id asc"
+                    >
+                           <field name="alert_id" string="Alerte" optional="hide"/>
+                           <field name="applicate" string="Application"/>
+                           <field name="cert_num" string="Numéro Certificat"/>
+                           <field name="cert_ref" string="Réference"/>
+                           <field name="cert_dat_expire" string="Date d'expiration"/>
+                           <field name="cert_status" string="Statut"/>
+                           <field name="const_dat" string="Date du Constat" optional="hide"/>
+                           <field name="confir_dat" string="Date de confirmation" optional="hide"/>
+                           <field name="extrat1_dat" string="Date d'extraction" optional="hide"/>
+                           <field name="cot_dat" string="Date de cotation" optional="hide"/>
+                           <field name="ach_dat" string="Date d'achat" optional="hide"/>
+                           <field name="ver_ach_dat" string="Date de verification" optional="hide"/>
+                           <field name="nouvel_ext_dat" string=" nouvelle date d'extraction" optional="hide"/>
+                           <field name="transf_dat" string="Date transfère" optional="hide"/>
+                           <field name="instal_dat" string="Date d'installation" optional="hide"/>
+                           <field name="ver_instal_dat" string="date verification installation" optional="hide"/>
+                          <field name="observat" string="Observation" optional="hide"/>
+        </tree>
+      </field>
+    </record>
+          <!-- la view search-->
+        <record id="view_search_renouvellement_alert" model="ir.ui.view">
+             <field name="name">RENOUVELLEMENT D'UN CERTIFICAT /LICENCES</field>
+              <field name="model">certificat.renouvellement</field>
+              <field name="arch" type="xml">
+                <search string="CERTIFICAT EN RENOUVELLEMENT">
+                    <field name="cert_num" string="Numero"/>
+                    <field name="cert_ref" string="Réference"/>
+                </search>
+            </field>
+        </record>
+
+
+      <record id="action_server_certificat_renouvel" model="ir.actions.server">
+                <field name="name">Imprimer certificat</field>
+                <field name="model_id" ref="model_certificat_renouvellement"/>
+                <field name="state">code</field>
+                <field name="code">
+                    if records:
+                          action = records.imprimer_certificat_renouvel()
+                </field>
+         </record>
+
+    <!-- la view action -->
+        <record model="ir.actions.act_window" id="view_action_renouvellement_certificat">
+          <field name="name">RENOUVELLEMENT D'UN CERTIFICAT /LICENCES</field>
+          <field name="res_model">certificat.renouvellement</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+       </data>
+</odoo>

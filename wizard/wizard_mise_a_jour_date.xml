@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="wizard_mise_date_form">
+            <field name="name">LA NOUVELLE DATE D'EXPIRATION</field>
+            <field name="model">mise.date</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="LA NOUVELLE DATE D'EXPIRATION">
+                    <sheet>
+                        <group>
+                            <group>
+                                  <field name="mse_date"/>
+                            </group>
+                            <group>
+                                <field name="mse_dat_pa"/>
+                            </group>
+
+                        </group>
+
+                    </sheet>
+                    <shooter>
+                        <button name="test" type="object" string="Mise à jour "/>
+                    </shooter>
+                </form>
+            </field>
+        </record>
+
+         <record model="ir.actions.act_window" id="action_mise_a_jour_form_view">
+            <field name="name">LA NOUVELLE DATE D'EXPIRATION</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mise.date</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="wizard_mise_date_form"/>
+        </record>
+
+    </data>
+    </odoo>

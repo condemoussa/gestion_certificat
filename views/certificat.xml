@@ -1,0 +1,91 @@
+<odoo>
+  <data>
+        <!-- la view form -->
+      <record model="ir.ui.view" id="view_form_certificats">
+            <field name="name">CERTIFICATS</field>
+            <field name="model">gestion.certificat</field>
+            <field name="arch" type="xml">
+                <form string="CERTIFICATS">
+
+                      <sheet>
+                          <div style="border-radius:20px 20px black;color:orange; margin-bottom:20px; padding:10px;text-align:center;font-size:30px;">
+                              CERTIFICATS / LICENCES
+                          </div>
+                          <div>
+                                <h1>
+                                    <field name="numero"/>
+                                </h1>
+                          </div>
+                           <group>
+                                   <group>
+                                        <field name="reference"/>
+                                        <field name="dat_achat"/>
+                                        <field name="expiration_date"/>
+                                        <field name="type_cert"/>
+                                         <field name="application_id" string="Application :"/>
+                                   </group>
+                                   <group>
+                                        <field name="name"/>
+                                        <field name="state" string="Etat :"/>
+                                        <field name="expiration_date_pa"/>
+                                        <field name="provenance_cert"/>
+                                        <field name="status" invisible="1"/>
+                                        <field name="rex_cert"/>
+                                   </group>
+                                <h6>Commentaire :</h6>
+                                <field  name="comment_certif"/>
+                           </group>
+
+
+
+                      </sheet>
+                </form>
+            </field>
+        </record>
+       <!-- la view tree -->
+       <record model="ir.ui.view" id="view_tree_certificat">
+                  <field name="name">CERTIFICATS</field>
+                  <field name="model">gestion.certificat</field>
+                  <field name="arch" type="xml">
+                    <tree string="CERTIFICATS" default_order="expiration_date asc, id asc"
+                    >
+                         <field name="name" string="Certificat"/>
+                         <field name="reference" string="Référence" />
+                         <field name="numero" string="Numéro" optional="hide"/>
+                        <field name="expiration_date" string="Date d'expiration" />
+                         <field name="application_id" string="Application"/>
+                        <field name="state" string="Etat"/>
+                        <field name="expiration_date_pa" string="Date Expire PA"/>
+                        <field name="dat_achat" optional="hide" string="Date d'achat"/>
+                        <field name="provenance_cert" optional="hide" string="Nature"/>
+                        <field name="rex_cert" string="Rex"/>
+                        <field  name="comment_certif_short" string="Commentaire"/>
+<!--                        <field name="description" optional="hide" />-->
+<!--                        <field name="nbre_jour" optional="hide"/>-->
+
+        </tree>
+      </field>
+    </record>
+
+       <!-- la view search-->
+        <record id="view_search_certificat" model="ir.ui.view">
+                <field name="name">CERTIFICATS</field>
+                  <field name="model">gestion.certificat</field>
+                  <field name="arch" type="xml">
+                <search string="CERTIFICATS">
+                    <field name="numero" string="Numéro"/>
+                    <field name="reference" string="Référence"/>
+                    <field name="name" string="Certificat"/>
+                </search>
+            </field>
+        </record>
+
+    <!-- la view action -->
+        <record model="ir.actions.act_window" id="view_action_certificat">
+          <field name="name">CERTIFICATS</field>
+          <field name="res_model">gestion.certificat</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+
+       </data>
+</odoo>

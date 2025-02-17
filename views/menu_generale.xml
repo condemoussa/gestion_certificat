@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+
+      <!-- menu general  -->
+      <menuitem name="CERTIFICATS / LICENCES SI" id="id_menu_general_certificats"
+                groups="gestion_demande_changement.group_gestion_certificat"
+      />
+
+        <!-- *************************************************************** -->
+      <!-- menu certificat  -->
+            <menuitem
+                    name="Certificats" id="id_premier_sous_menu"
+                    parent="id_menu_general_certificats"
+                    sequence="1"
+            />
+
+            <menuitem name="Liste" id="id_premier_sous_sous_menu"
+                      parent="id_premier_sous_menu"
+                      action="view_action_certificat"
+
+            />
+        <!-- *************************************************************** -->
+
+            <menuitem name="Renouvellement" id="id_nouveau_renouvellement"
+                      parent="id_menu_general_certificats"
+                      sequence="2"
+            />
+
+           <menuitem name="Liste" id="id_sous_nouveau_renouvellement"
+                     parent="id_nouveau_renouvellement"
+                     action="view_action_renouvellement_certificat"
+
+
+           />
+      <!-- *************************************************************** -->
+
+      <menuitem name="Consultation Alerte " id="id_consultation_alerty"
+                parent="id_menu_general_certificats"
+                sequence="3"
+      />
+
+       <menuitem name="Liste" id="id_consultation_alert_sous"
+                 parent="id_consultation_alerty"
+                 action="view_action_consultation_alert"
+
+       />
+
+         <!-- *************************************************************** -->
+
+       <menuitem id="id_rapport"
+                    name="Rapports"
+                  parent="id_menu_general_certificats"
+                   sequence="4"
+                 />
+<!--          <menuitem-->
+<!--            id="id_sous_rapport"-->
+<!--            name="List des certificats"-->
+<!--            parent="id_rapport"-->
+<!--            action="action_rapport_certificat_form_view"-->
+<!--            sequence="1"-->
+<!--        />-->
+        <menuitem
+            id="id_renouvel_certificat"
+            name="List des certificats renouvellé"
+            parent="id_rapport"
+            action="action_rapport_certificat_renouvel_form_view"
+            sequence="1"
+        />
+         <menuitem
+            id="id_alert_certificat"
+            name="List des certificats en alert"
+            parent="id_rapport"
+            action="action_rapport_certificat_alert_form_view"
+            sequence="2"
+        />
+        <menuitem
+            id="id_actif_certificat"
+            name="List des certificats actifs"
+            parent="id_rapport"
+            action="action_rapport_certificat_actif_form_view"
+            sequence="3"
+        />
+
+
+       </data>
+    </odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="wizard_rapport_certificat_alert_form">
+            <field name="name">RAPPORT CERTIFICAT ALERT</field>
+            <field name="model">rapport.certificat.alert</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="RAPPORT CERTIFICAT ALERT">
+                    <sheet>
+                        <group>
+                           <field name="state" placholder="Imprimé tous"/>
+                        </group>
+
+                    </sheet>
+                    <shooter>
+                        <button name="action_certificat_alert_excel_xlsx" type="object" string="exporter en Excel"/>
+                    </shooter>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_rapport_certificat_alert_form_view">
+            <field name="name">RAPPORT CERTIFICAT ALERT</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rapport.certificat.alert</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="wizard_rapport_certificat_alert_form"/>
+        </record>
+
+          <record id="atm_action_rapport_certificat_alert_xlsx" model="ir.actions.report">
+            <field name="name">RAPPORT CERTIFICAT ALERT</field>
+            <field name="model">rapport.certificat.alert</field>
+            <field name="binding_model_id" ref="model_rapport_certificat_alert"/>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">gestion_certificat.wizard_rapport_alert_certificat</field>
+            <field name="report_file">gestion_certificat.wizard_rapport_alert_certificat</field>
+            <field name="binding_view_types">list</field>
+              <field name="binding_type">report</field>
+        </record>
+
+
+    </data>
+</odoo>

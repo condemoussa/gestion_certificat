@@ -1,0 +1,21 @@
+/* custom_styles.css */
+.bg-danger {
+    background-color: #ff0000; /* Rouge */
+}
+
+.bg-success {
+    background-color: #00ff00; /* Vert */
+}
+
+.bg-black {
+    background-color: #000000; /* Noir */
+}
+
+.bg-yellow {
+    background-color:yellow; /* Jaune */
+}
+
+.bg-orange {
+    background:orange; /* Orange */
+}
+

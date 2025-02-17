@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+       <!-- la view search -->
+      <record id="view_search_consultation_alert" model="ir.ui.view">
+             <field name="name">CONSULTATION DES ALERTS</field>
+            <field name="model">gestion.alerty</field>
+            <field name="arch" type="xml">
+                <search string="CERTIFICAT EN ALERT">
+                    <field name="numero" string="Numéro"/>
+                    <field name="reference" string="Référence"/>
+                    <field name="name" string="Certificat"/>
+                </search>
+            </field>
+        </record>
+      <!-- la view tree -->
+       <record model="ir.ui.view" id="view_tree_consultation_alert">
+                  <field name="name">CONSULTATION DES ALERTS</field>
+                  <field name="model">gestion.alerty</field>
+                  <field name="arch" type="xml">
+                    <tree string="CONSULTATION DES ALERTS" default_order="expiration_date asc, id asc" >
+                         <field name="reference" optional="hide" string="Référence "/>
+                         <field name="numero" optional="hide" string="N°CL "/>
+                         <field name="name" string="Certificat"/>
+                         <field name="expiration_date" optional="hide" string="Date d'expiration" />
+                         <field name="expiration_date_pa" optional="hide" string="Date PA"/>
+                          <field name="status" string="Niveau ALT"
+                                  decoration-success="status =='green'"
+                                  decoration-danger="status =='red'"
+                                  decoration-warning="status =='yellow'"
+                                  decoration-info="status =='orange'"
+                                 widget="badge"
+
+                          />
+                          <field name="traitement_certifi_short" string="Traitement" />
+                          <field name="state" optional="hide" string="Etat" />
+                          <field name="statute"/>
+                          <field name="rex_id" string="Rex"/>
+                          <field name="commt_certif_short" string="Commentaire" />
+
+                    </tree>
+      </field>
+    </record>
+
+    <!-- la view action -->
+        <record model="ir.actions.act_window" id="view_action_consultation_alert">
+          <field name="name">CONSULTATION DES ALERTS</field>
+          <field name="res_model">gestion.alerty</field>
+          <field name="view_mode">tree</field>
+        </record>
+
+      <!-- action server -->
+     <record id="action_server_test1" model="ir.actions.server">
+            <field name="name">Actualisé la liste des alerts</field>
+            <field name="model_id" ref="model_gestion_alerty"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                      action = records._compute_state_color()
+            </field>
+     </record>
+
+
+       </data>
+</odoo>

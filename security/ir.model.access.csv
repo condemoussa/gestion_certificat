@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_gestion_certificat,gestion.certificat,model_gestion_certificat,,1,1,1,1
+access_certificat_renouvellement,certificat.renouvellement,model_certificat_renouvellement,,1,1,1,1
+access_gestion_alerty,gestion.alerty,model_gestion_alerty,,1,1,1,1
+access_rapport_certificat,rapport.certificat,model_rapport_certificat,,1,1,1,1
+access_certificat_actif,certificat.actif,model_certificat_actif,,1,1,1,1
+access_mise_date,mise.date,model_mise_date,,1,1,1,1
+access_rapport_certificat_renouvel,rapport.certificat.renouvel,model_rapport_certificat_renouvel,,1,1,1,1
+access_rapport_certificat_alert,rapport.certificat.alert,model_rapport_certificat_alert,,1,1,1,1
+
