@@ -90,7 +90,8 @@ class RapportCertificatsAlert(models.AbstractModel):
             sheet.write(row, col + 3, data_payroll[line]['name'], background)
             sheet.write(row, col + 4, data_payroll[line]['rex'] if data_payroll[line]['rex'] else "", background)
             sheet.write(row, col + 5, data_payroll[line]['application_id'] if data_payroll[line]['application_id'] else "", background)
-            sheet.write(row, col + 6, 'Licence' if data_payroll[line]['type_cert'] == 'type' else 'Certificat', background)
+            sheet.write(row, col + 6,'Licence' if data_payroll[line]['type_cert'] == 'type' else 'Certificat' if data_payroll[line]['type_cert'] == 'type2' else 'CompteAdmin', background)
+            #sheet.write(row, col + 6, 'Licence' if data_payroll[line]['type_cert'] == 'type' else 'Certificat', background)
             #date_str = data_payroll[line]['dat_achat']
             #date_object = datetime.strptime(date_str, '%Y-%m-%d')
             #formatted_date = date_object.strftime('%d/%m/%Y')
