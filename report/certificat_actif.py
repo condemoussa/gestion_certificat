@@ -88,17 +88,11 @@ class RapportCertificatsActif(models.AbstractModel):
             sheet.write(row, col + 4, data_payroll[line]['rex'] if data_payroll[line]['rex'] else "", background)
             sheet.write(row, col + 5, data_payroll[line]['application_id'] if data_payroll[line]['application_id'] else "", background)
             sheet.write(row, col + 6,'Licence' if data_payroll[line]['type_cert'] == 'type' else 'Certificat' if data_payroll[line][ 'type_cert'] == 'type2' else 'CompteAdmin', background)
-            #date_str = data_payroll[line]['dat_achat']
-            #date_object = datetime.strptime(date_str, '%Y-%m-%d')
-            #formatted_date = date_object.strftime('%d/%m/%Y')
+
             sheet.write(row, col + 7,data_payroll[line]['dat_achat'], background)
-            date_str = data_payroll[line]['expiration_date']
-            date_object = datetime.strptime(date_str, '%Y-%m-%d')
-            formatted_date = date_object.strftime('%d/%m/%Y')
-            sheet.write(row, col + 8,formatted_date, background)
-            # date_str = data_payroll[line]['date_pa']
-            # date_object = datetime.strptime(date_str, '%Y-%m-%d')
-            # formatted_date = date_object.strftime('%d/%m/%Y')
+
+            sheet.write(row, col + 8,data_payroll[line]['expiration_date'], background)
+
             sheet.write(row, col + 9,data_payroll[line]['date_pa'], background)
             sheet.write(row, col + 10,'Actif' if data_payroll[line]['state'] == 'active' else 'Inactif' if data_payroll[line][ 'state'] == 'desactive' else 'Attente', background)
             sheet.write(row, col + 11, data_payroll[line]['status'] if data_payroll[line]['status'] else "",  background)
